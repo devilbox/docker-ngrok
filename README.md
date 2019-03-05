@@ -1,6 +1,6 @@
 # Ngrok
 
-[![Build Status](https://travis-ci.org/devilbox/docker-ngrok.svg?branch=master)](https://travis-ci.org/devilbox/docker-ngrok)
+[![Build Status](https://travis-ci.com/devilbox/docker-ngrok.svg?branch=master)](https://travis-ci.com/devilbox/docker-ngrok)
 [![Tag](https://img.shields.io/github/tag/devilbox/docker-ngrok.svg)](https://github.com/devilbox/docker-ngrok/releases)
 [![Gitter](https://badges.gitter.im/devilbox/Lobby.svg)](https://gitter.im/devilbox/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Discourse](https://img.shields.io/discourse/https/devilbox.discourse.group/status.svg?colorB=%234CB697)](https://devilbox.discourse.group)

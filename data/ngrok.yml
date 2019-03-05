@@ -1,0 +1,16 @@
+#authtoken: 3FqC8NZYFm3FCTnq31YP_4PVTJD76Ugzejfn5Eq49A
+#region: us
+#console_ui: true
+#http_proxy: false
+#inspect_db_size: 50000000
+log_level: info
+log_format: json
+#log: /var/log/ngrok.log
+log: stdout
+#metadata: '{"serial": "00012xa-33rUtz9", "comment": "For customer alan@example.com"}'
+#root_cas: trusted
+#socks5_proxy: "socks5://localhost:9150"
+#update: false
+#update_channel: stable
+web_addr: 0.0.0.0:4040
+tunnels:
