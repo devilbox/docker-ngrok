@@ -71,6 +71,7 @@ make test
 | Variable     | Default value | Description |
 |--------------|---------------|-------------|
 | HTTP_TUNNELS | `` | HTTP tunnel definition in the form of:<br/><code>&lt;domain.tld&gt;:&lt;addr&gt;:&lt;port&gt;</code><br/>or<br/><code>&lt;domain1.tld&gt;:&lt;addr&gt;:&lt;port&gt;,&lt;domain2.tld&gt;:&lt;addr&gt;:&lt;port&gt;</code><br/><br/><strong>Note:</strong> If you don't use a license you can only specify a single tunnel. If your license is pro enough, you can have multiple comma separated tunnels |
+| REGION       | `` | Choose the region where the ngrok client will connect to host its tunnels. (Defaults to `us`) |.
 | AUTHTOKEN    | `` | Your Ngrok license authtoken. You don't need to have a license for a single tunnel and can ommit this variable. Nevertheless they also have a free license that might be worth checking out |.
 
 ### HTTP_TUNNELS

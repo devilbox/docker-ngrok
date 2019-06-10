@@ -18,6 +18,26 @@ fi
 
 
 # -------------------------------------------------------------------------------------------------
+# SPECIFY REGION
+# -------------------------------------------------------------------------------------------------
+
+if ! env | grep -q '^REGION='; then
+	REGION=
+else
+	REGION="$( env env | grep '^REGION=' | awk -F'=' '{print $2}' | xargs )"
+	REGION="${REGION##*( )}" # Trim leading whitespaces
+	REGION="${REGION%%*( )}" # Trim trailing whitespaces
+
+	if [ -z "${REGION}" ]; then
+		>&2 echo "[WARN]  REGION specified, but empty"
+	else
+		echo "[INFO]  Using region as specified in REGION: ${REGION}"
+		echo "region: ${REGION}" >> "${CONFIG_FILE}"
+	fi
+fi
+
+
+# -------------------------------------------------------------------------------------------------
 # SPECIFY AUTH TOKEN
 # -------------------------------------------------------------------------------------------------
 
