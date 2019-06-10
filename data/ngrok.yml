@@ -13,4 +13,3 @@ log: stdout
 #update: false
 #update_channel: stable
 web_addr: 0.0.0.0:4040
-tunnels:
