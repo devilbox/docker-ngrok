@@ -22,6 +22,27 @@ RUN set -eux \
 
 
 FROM debian:stretch-slim as final
+
+
+###
+### Labels
+###
+# https://github.com/opencontainers/image-spec/blob/master/annotations.md
+#LABEL "org.opencontainers.image.created"=""
+#LABEL "org.opencontainers.image.version"=""
+#LABEL "org.opencontainers.image.revision"=""
+LABEL "maintainer"="cytopia <cytopia@everythingcli.org>"
+LABEL "org.opencontainers.image.authors"="cytopia <cytopia@everythingcli.org>"
+LABEL "org.opencontainers.image.url"="https://github.com/devilbox/docker-ngrok"
+LABEL "org.opencontainers.image.documentation"="https://github.com/devilbox/docker-ngrok"
+LABEL "org.opencontainers.image.source"="https://github.com/devilbox/docker-ngrok"
+LABEL "org.opencontainers.image.vendor"="devilbox"
+LABEL "org.opencontainers.image.licenses"="MIT"
+LABEL "org.opencontainers.image.ref.name"="Ngrok"
+LABEL "org.opencontainers.image.title"="Ngrok"
+LABEL "org.opencontainers.image.description"="Ngrok"
+
+
 RUN set -x \
 	&& useradd -m -U -u 6737  -s /bin/bash ngrok \
 	&& mkdir /home/ngrok/.ngrok2 \
