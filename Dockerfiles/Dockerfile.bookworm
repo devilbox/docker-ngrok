@@ -6,7 +6,8 @@ RUN set -eux \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends --no-install-suggests \
 		ca-certificates \
 		curl \
-	&& rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/* \
+	&& update-ca-certificates
 
 RUN set -eux \
 	&& URL="$( \

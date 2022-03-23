@@ -15,8 +15,26 @@ env:
       {
         "NAME":    "ngrok",
         "VERSION": ["2"],
-        "FLAVOUR": ["latest", "alpine", "bookworm", "bullseye", "buster", "stretch"],
+        "FLAVOUR": ["latest", "alpine"],
+        "ARCH":    ["linux/amd64", "linux/386", "linux/arm64", "linux/arm/v7", "linux/arm/v6", "linux/ppc64le", "linux/s390x"]
+      },
+      {
+        "NAME":    "ngrok",
+        "VERSION": ["2"],
+        "FLAVOUR": ["bookworm", "bullseye"],
         "ARCH":    ["linux/amd64", "linux/386", "linux/arm64", "linux/arm/v7", "linux/arm/v6", "linux/ppc64le", "linux/s390x", "linux/mips64le"]
+      },
+      {
+        "NAME":    "ngrok",
+        "VERSION": ["2"],
+        "FLAVOUR": ["buster"],
+        "ARCH":    ["linux/amd64", "linux/386", "linux/arm64", "linux/ppc64le", "linux/s390x", "linux/mips64le"]
+      },
+      {
+        "NAME":    "ngrok",
+        "VERSION": ["2"],
+        "FLAVOUR": ["stretch"],
+        "ARCH":    ["linux/amd64", "linux/386", "linux/arm64", "linux/arm/v7", "linux/arm/v6"]
       }
     ]
 

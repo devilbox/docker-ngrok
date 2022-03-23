@@ -4,7 +4,8 @@ ARG ARCH
 RUN set -eux \
 	&& apk add \
 		ca-certificates \
-		curl
+		curl \
+	&& update-ca-certificates
 
 RUN set -eux \
 	&& URL="$( \

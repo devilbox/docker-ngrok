@@ -25,7 +25,7 @@ TAG        = latest
 
 # Makefile.docker overwrites
 NAME       = ngrok
-VERSION    = 5.5
+VERSION    = latest
 IMAGE      = devilbox/ngrok
 FLAVOUR    = latest
 FILE       = Dockerfile.$(FLAVOUR)
