@@ -1,0 +1,59 @@
+FROM debian:bullseye-slim as builder
+ARG ARCH
+
+RUN set -eux \
+	&& DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends --no-install-suggests \
+		ca-certificates \
+		curl \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN set -eux \
+	&& URL="$( \
+		curl -sS --fail https://ngrok.com/download \
+		| grep -Eo "http(s)?://.+ngrok-stable-${ARCH}\.tgz" \
+		| head -1 \
+	)" \
+	&& curl -sS --fail -o /tmp/ngrok.tgz "${URL}" \
+	&& tar xvfz /tmp/ngrok.tgz \
+	&& rm /tmp/ngrok.tgz \
+	&& mv ngrok /usr/local/bin \
+	&& ngrok version | grep -E '^ngrok.+[.0-9]+$'
+
+
+FROM debian:bullseye-slim as final
+
+###
+### Labels
+###
+# https://github.com/opencontainers/image-spec/blob/master/annotations.md
+#LABEL "org.opencontainers.image.created"=""
+#LABEL "org.opencontainers.image.version"=""
+#LABEL "org.opencontainers.image.revision"=""
+LABEL "maintainer"="cytopia <cytopia@everythingcli.org>"
+LABEL "org.opencontainers.image.authors"="cytopia <cytopia@everythingcli.org>"
+LABEL "org.opencontainers.image.url"="https://github.com/devilbox/docker-ngrok"
+LABEL "org.opencontainers.image.documentation"="https://github.com/devilbox/docker-ngrok"
+LABEL "org.opencontainers.image.source"="https://github.com/devilbox/docker-ngrok"
+LABEL "org.opencontainers.image.vendor"="devilbox"
+LABEL "org.opencontainers.image.licenses"="MIT"
+LABEL "org.opencontainers.image.ref.name"="ngrok"
+LABEL "org.opencontainers.image.title"="ngrok"
+LABEL "org.opencontainers.image.description"="ngrok"
+
+RUN set -x \
+	&& useradd -m -U -u 6737 -s /bin/bash ngrok \
+	&& mkdir /home/ngrok/.ngrok2 \
+	&& chown ngrok:ngrok /home/ngrok/.ngrok2
+
+COPY --from=builder /usr/local/bin/ngrok /usr/local/bin/ngrok
+COPY data/docker-entrypoint.sh /docker-entrypoint.sh
+COPY data/ngrok.yml /home/ngrok/.ngrok2/ngrok.yml
+
+RUN set -x \
+	&& chown ngrok:ngrok /home/ngrok/.ngrok2/ngrok.yml
+
+USER ngrok
+ENV user=ngrok
+
+CMD ["/docker-entrypoint.sh"]
