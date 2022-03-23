@@ -69,9 +69,11 @@ help:
 #  Docker Targets
 # -------------------------------------------------------------------------------------------------
 .PHONY: build
+build: ARGS=--build-arg ARCH=$(subst /,-,$(ARCH))
 build: docker-arch-build
 
 .PHONY: rebuild
+build: ARGS=--build-arg ARCH=$(subst /,-,$(ARCH))
 rebuild: docker-arch-rebuild
 
 .PHONY: push

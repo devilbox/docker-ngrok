@@ -1,16 +1,15 @@
 FROM alpine as builder
+ARG ARCH
 
 RUN set -eux \
 	&& apk add \
 		ca-certificates \
-		curl \
-		dpkg \
-		dpkg-dev
+		curl
 
 RUN set -eux \
 	&& URL="$( \
 		curl -sS --fail https://ngrok.com/download \
-		| grep -Eo "http(s)?://.+ngrok-stable-linux-$(dpkg-architecture --query DEB_BUILD_ARCH_CPU)\.tgz" \
+		| grep -Eo "http(s)?://.+ngrok-stable-${ARCH}\.tgz" \
 		| head -1 \
 	)" \
 	&& curl -sS --fail -o /tmp/ngrok.tgz "${URL}" \

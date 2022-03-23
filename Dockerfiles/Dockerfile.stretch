@@ -1,17 +1,17 @@
 FROM debian:stretch-slim as builder
+ARG ARCH
 
 RUN set -eux \
 	&& DEBIAN_FRONTEND=noninteractive apt-get update -qq \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends --no-install-suggests \
 		ca-certificates \
 		curl \
-		dpkg-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN set -eux \
 	&& URL="$( \
 		curl -sS --fail https://ngrok.com/download \
-		| grep -Eo "http(s)?://.+ngrok-stable-linux-$(dpkg-architecture --query DEB_BUILD_ARCH_CPU)\.tgz" \
+		| grep -Eo "http(s)?://.+ngrok-stable-${ARCH}\.tgz" \
 		| head -1 \
 	)" \
 	&& curl -sS --fail -o /tmp/ngrok.tgz "${URL}" \
