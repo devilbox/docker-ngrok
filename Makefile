@@ -79,11 +79,11 @@ endif
 
 
 .PHONY: build
-build: ARGS=--build-arg ARCH=$(NGROK)
+build: ARGS=--build-arg $(NGROK)
 build: docker-arch-build
 
 .PHONY: rebuild
-rebuild: ARGS=--build-arg ARCH=$(NGROK)
+rebuild: ARGS=--build-arg $(NGROK)
 rebuild: docker-arch-rebuild
 
 .PHONY: push
