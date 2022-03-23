@@ -1,10 +1,12 @@
-FROM alpine as builder
+FROM debian:buster-slim as builder
 ARG ARCH
 
 RUN set -eux \
-	&& apk add \
+	&& DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends --no-install-suggests \
 		ca-certificates \
 		curl \
+	&& rm -rf /var/lib/apt/lists/* \
 	&& update-ca-certificates
 
 RUN set -eux \
@@ -20,7 +22,8 @@ RUN set -eux \
 	&& ngrok version | grep -E '^ngrok.+[.0-9]+$'
 
 
-FROM alpine as final
+FROM debian:buster-slim as final
+
 ###
 ### Labels
 ###
@@ -40,9 +43,7 @@ LABEL "org.opencontainers.image.title"="ngrok"
 LABEL "org.opencontainers.image.description"="ngrok"
 
 RUN set -x \
-	&& apk add bash \
-	&& addgroup -g 6837 ngrok \
-	&& adduser -h /home/ngrok -u 6737 -G ngrok -D -s /bin/bash ngrok \
+	&& useradd -m -U -u 6737 -s /bin/bash ngrok \
 	&& mkdir /home/ngrok/.ngrok2 \
 	&& chown ngrok:ngrok /home/ngrok/.ngrok2
 

@@ -25,7 +25,7 @@ TAG        = latest
 
 # Makefile.docker overwrites
 NAME       = ngrok
-VERSION    = 5.5
+VERSION    = latest
 IMAGE      = devilbox/ngrok
 FLAVOUR    = latest
 FILE       = Dockerfile.$(FLAVOUR)
@@ -68,12 +68,22 @@ help:
 # -------------------------------------------------------------------------------------------------
 #  Docker Targets
 # -------------------------------------------------------------------------------------------------
+
+NGROK = $(subst /,-,$(ARCH))
+ifeq ($(strip $(ARCH)),linux/arm/v6)
+NGROK = linux-arm
+endif
+ifeq ($(strip $(ARCH)),linux/arm/v7)
+NGROK = linux-arm
+endif
+
+
 .PHONY: build
-build: ARGS=--build-arg ARCH=$(subst /,-,$(ARCH))
+build: ARGS=--build-arg ARCH=$(NGROK)
 build: docker-arch-build
 
 .PHONY: rebuild
-rebuild: ARGS=--build-arg ARCH=$(subst /,-,$(ARCH))
+rebuild: ARGS=--build-arg ARCH=$(NGROK)
 rebuild: docker-arch-rebuild
 
 .PHONY: push

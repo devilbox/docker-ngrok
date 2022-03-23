@@ -11,7 +11,7 @@
 [![](https://images.microbadger.com/badges/image/devilbox/ngrok.svg)](https://microbadger.com/images/devilbox/ngrok "ngrok")
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
-**Available Architectures:**  `amd64`, `i386`, `arm64`
+**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`, `ppc64le`, `s390x`, `mips64le`
 
 | Docker Hub | Upstream Project |
 |------------|------------------|
@@ -19,20 +19,28 @@
 
 ## Available Docker tags
 
-| Docker Tag                      | Description                                                  |
-|---------------------------------|--------------------------------------------------------------|
-| `latest`                        | Latest Debian Stretch image (default)                        |
-| `stretch`                       | Latest Debian Stretch image                                  |
-| `alpine`                        | Latest Alpine image                                          |
-|                                 |                                                              |
-| `[0-9]\.[0-9]+`                 | Git tagged Debian Sretch image. E.g: `0.53`                  |
-| `stretch-[0-9]\.[0-9]+`         | Git tagged Debian Stretch image. E.g: `stretch-0.53`         |
-| `alpine-[0-9]\.[0-9]+`          | Git tagged Alpine image. E.g: `alpine-0.53`                  |
-|                                 |                                                              |
-| `release-[0-9]\.[0-9]+`         | Git branch Debian Stretch image. E.g: `release-0.53`         |
-| `stretch-release-[0-9]\.[0-9]+` | Git branch Debian Stretch image. E.g: `stretch-release-0.53` |
-| `alpine-release-[0-9]\.[0-9]+`  | Git branch Alpine image. E.g: `alpine-release-0.53`          |
-
+| Docker Tag                       | Description                                                   |
+|----------------------------------|---------------------------------------------------------------|
+| `latest`                         | Latest Alpine image (default)                                 |
+| `alpine`                         | Latest Alpine image                                           |
+| `bookworm`                       | Latest Debian Bookworm image                                  |
+| `bullseye`                       | Latest Debian Bullseye image                                  |
+| `buster`                         | Latest Debian Buster image                                    |
+| `stretch`                        | Latest Debian Stretch image                                   |
+|                                  |                                                               |
+| `[0-9]\.[0-9]+`                  | Git tagged Alpine image. E.g: `0.53`                          |
+| `alpine-[0-9]\.[0-9]+`           | Git tagged Alpine image. E.g: `alpine-0.53`                   |
+| `bookworm-[0-9]\.[0-9]+`         | Git tagged Debian Stretch image. E.g: `bookworm-0.53`         |
+| `bullseye-[0-9]\.[0-9]+`         | Git tagged Debian Stretch image. E.g: `bullseye-0.53`         |
+| `buster-[0-9]\.[0-9]+`           | Git tagged Debian Stretch image. E.g: `buster-0.53`           |
+| `stretch-[0-9]\.[0-9]+`          | Git tagged Debian Stretch image. E.g: `stretch-0.53`          |
+|                                  |                                                               |
+| `release-[0-9]\.[0-9]+`          | Git branch Alpine image. E.g: `release-0.53`                  |
+| `alpine-release-[0-9]\.[0-9]+`   | Git branch Alpine image. E.g: `alpine-release-0.53`           |
+| `bookworm-release-[0-9]\.[0-9]+` | Git branch Debian Stretch image. E.g: `bookworm-release-0.53` |
+| `bullseye-release-[0-9]\.[0-9]+` | Git branch Debian Stretch image. E.g: `bullseye-release-0.53` |
+| `buster-release-[0-9]\.[0-9]+`   | Git branch Debian Stretch image. E.g: `buster-release-0.53`   |
+| `stretch-release-[0-9]\.[0-9]+`  | Git branch Debian Stretch image. E.g: `stretch-release-0.53`  |
 
 
 ## Documentation
