@@ -69,7 +69,7 @@ help:
 #  Docker Targets
 # -------------------------------------------------------------------------------------------------
 
-NGROK = ARCH=$(subst /,-,$(ARCH))
+NGROK = $(subst /,-,$(ARCH))
 ifeq ($(strip $(ARCH)),linux/arm/v6)
 NGROK = linux-arm
 endif
@@ -79,11 +79,11 @@ endif
 
 
 .PHONY: build
-build: ARGS=--build-arg $(NGROK)
+build: ARGS=--build-arg ARCH=$(NGROK)
 build: docker-arch-build
 
 .PHONY: rebuild
-rebuild: ARGS=--build-arg $(NGROK)
+rebuild: ARGS=--build-arg ARCH=$(NGROK)
 rebuild: docker-arch-rebuild
 
 .PHONY: push
