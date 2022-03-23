@@ -15,7 +15,7 @@ env:
       {
         "NAME":    "ngrok",
         "VERSION": ["2"],
-        "FLAVOUR": ["latest", "stretch"],
+        "FLAVOUR": ["latest", "stretch", "alpine"],
         "ARCH":    ["linux/amd64", "linux/386", "linux/arm64"]
       }
     ]

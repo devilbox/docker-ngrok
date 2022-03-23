@@ -11,7 +11,7 @@
 [![](https://images.microbadger.com/badges/image/devilbox/ngrok.svg)](https://microbadger.com/images/devilbox/ngrok "ngrok")
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
-**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`
+**Available Architectures:**  `amd64`, `i386`, `arm64`
 
 | Docker Hub | Upstream Project |
 |------------|------------------|
