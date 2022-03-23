@@ -23,12 +23,15 @@
 |---------------------------------|--------------------------------------------------------------|
 | `latest`                        | Latest Debian Stretch image (default)                        |
 | `stretch`                       | Latest Debian Stretch image                                  |
+| `alpine`                        | Latest Alpine image                                          |
 |                                 |                                                              |
 | `[0-9]\.[0-9]+`                 | Git tagged Debian Sretch image. E.g: `0.53`                  |
 | `stretch-[0-9]\.[0-9]+`         | Git tagged Debian Stretch image. E.g: `stretch-0.53`         |
+| `alpine-[0-9]\.[0-9]+`          | Git tagged Alpine image. E.g: `alpine-0.53`                  |
 |                                 |                                                              |
 | `release-[0-9]\.[0-9]+`         | Git branch Debian Stretch image. E.g: `release-0.53`         |
 | `stretch-release-[0-9]\.[0-9]+` | Git branch Debian Stretch image. E.g: `stretch-release-0.53` |
+| `alpine-release-[0-9]\.[0-9]+`  | Git branch Alpine image. E.g: `alpine-release-0.53`          |
 
 
 
