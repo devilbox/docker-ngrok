@@ -1,6 +1,9 @@
 # Ngrok
 
-[![Build Status](https://travis-ci.org/devilbox/docker-ngrok.svg?branch=master)](https://travis-ci.org/devilbox/docker-ngrok)
+[![lint](https://github.com/devilbox/docker-ngrok/workflows/lint/badge.svg)](https://github.com/devilbox/docker-ngrok/actions?query=workflow%3Alint)
+[![build](https://github.com/devilbox/docker-ngrok/workflows/build/badge.svg)](https://github.com/devilbox/docker-ngrok/actions?query=workflow%3Abuild)
+[![nightly](https://github.com/devilbox/docker-ngrok/workflows/nightly/badge.svg)](https://github.com/devilbox/docker-ngrok/actions?query=workflow%3Anightly)
+
 [![Tag](https://img.shields.io/github/tag/devilbox/docker-ngrok.svg)](https://github.com/devilbox/docker-ngrok/releases)
 [![Gitter](https://badges.gitter.im/devilbox/Lobby.svg)](https://gitter.im/devilbox/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Discourse](https://img.shields.io/discourse/https/devilbox.discourse.group/status.svg?colorB=%234CB697)](https://devilbox.discourse.group)
@@ -8,9 +11,25 @@
 [![](https://images.microbadger.com/badges/image/devilbox/ngrok.svg)](https://microbadger.com/images/devilbox/ngrok "ngrok")
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
+**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`
+
 | Docker Hub | Upstream Project |
 |------------|------------------|
 | <a href="https://hub.docker.com/r/devilbox/ngrok"><img height="82px" src="http://dockeri.co/image/devilbox/ngrok" /></a> | <a href="https://github.com/cytopia/devilbox" ><img height="82px" src="https://raw.githubusercontent.com/devilbox/artwork/master/submissions_banner/cytopia/01/png/banner_256_trans.png" /></a> |
+
+## Available Docker tags
+
+| Docker Tag                      | Description                                                  |
+|---------------------------------|--------------------------------------------------------------|
+| `latest`                        | Latest Debian Stretch image (default)                        |
+| `stretch`                       | Latest Debian Stretch image                                  |
+|                                 |                                                              |
+| `[0-9]\.[0-9]+`                 | Git tagged Debian Sretch image. E.g: `0.53`                  |
+| `stretch-[0-9]\.[0-9]+`         | Git tagged Debian Stretch image. E.g: `stretch-0.53`         |
+|                                 |                                                              |
+| `release-[0-9]\.[0-9]+`         | Git branch Debian Stretch image. E.g: `release-0.53`         |
+| `stretch-release-[0-9]\.[0-9]+` | Git branch Debian Stretch image. E.g: `stretch-release-0.53` |
+
 
 
 ## Documentation
@@ -87,7 +106,7 @@ HTTP_TUNNELS=project1.loc:localhost:8080
 # Make two vhosts available which run on host apache:80
 HTTP_TUNNELS=project1.loc:apache:80,project2.loc:apache:80
 
-# Make two vhosts from two different web server addresses available 
+# Make two vhosts from two different web server addresses available
 HTTP_TUNNELS=project1.loc:localhost:8080,project2.loc:apache:80
 ```
 
